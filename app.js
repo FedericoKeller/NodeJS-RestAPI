@@ -7,9 +7,9 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.setHeader("Acces-Control-Allow-Origin", "*");
-    res.setHeader("Acces-Control-Allow-Methods","GET, POST, PUT, PATCH, DELETE");
-    res.setHeader("Acces-Control-Alow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods","GET, POST, PUT, PATCH, DELETE");
+    res.setHeader("Access-Control-Alow-Headers", "Content-Type, Authorization");
     next();
 })
 
