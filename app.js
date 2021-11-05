@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require("uuid");
 const DATABASE_CONNECTION = require("./database/database").DATABASE_CONNECTION;
 
 const feedRoutes = require("./routes/feed");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -47,14 +48,18 @@ app.use((req, res, next) => {
 });
 
 app.use("/feed", feedRoutes);
+app.use("/auth", authRoutes);
+
 
 app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
+  const data = error.data;
 
   res.status(status).json({
     message: message,
+    data: data,
   });
 });
 
