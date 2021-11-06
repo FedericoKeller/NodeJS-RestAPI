@@ -8,6 +8,7 @@ const DATABASE_CONNECTION = require("./database/database").DATABASE_CONNECTION;
 
 const feedRoutes = require("./routes/feed");
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use((req, res, next) => {
 
 app.use("/feed", feedRoutes);
 app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
 
 
 app.use((error, req, res, next) => {
